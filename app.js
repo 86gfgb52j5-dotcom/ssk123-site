@@ -298,7 +298,14 @@ function objectMedia(house, className = "house-media") {
 
 function galleryMedia(house) {
   const count = galleryCounts[house.id] || 0;
-  if (!count) return objectMedia(house, "detail-media");
+
+  if (!count) {
+    if (!house.cover) {
+      return `<div class="detail-media image-placeholder" role="img" aria-label="Фотографии объекта ${escapeHtml(house.title)} готовятся"><span>Фото готовятся</span></div>`;
+    }
+
+    return `<div class="detail-media"><img src="${house.cover}" alt="${escapeHtml(house.title)}" decoding="async"></div>`;
+  }
 
   const images = Array.from({ length: count }, (_, index) => {
     const number = String(index + 1).padStart(2, "0");
