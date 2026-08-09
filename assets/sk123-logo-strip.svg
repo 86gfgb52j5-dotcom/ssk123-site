@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 170" role="img" aria-label="SK123 строительная инвестиционная компания">
+  <defs>
+    <radialGradient id="stripBg" cx="16%" cy="22%" r="88%">
+      <stop offset="0" stop-color="#5a4120"/>
+      <stop offset="0.42" stop-color="#241a0f"/>
+      <stop offset="1" stop-color="#11100d"/>
+    </radialGradient>
+    <linearGradient id="stripGold" x1="22" y1="18" x2="590" y2="152" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff2bf"/>
+      <stop offset="0.28" stop-color="#e2ac49"/>
+      <stop offset="0.62" stop-color="#8b5418"/>
+      <stop offset="1" stop-color="#ffe3a8"/>
+    </linearGradient>
+    <linearGradient id="stripGoldText" x1="170" y1="42" x2="470" y2="130" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff5cb"/>
+      <stop offset="0.5" stop-color="#e2ac49"/>
+      <stop offset="1" stop-color="#b97822"/>
+    </linearGradient>
+    <filter id="stripShadow" x="-10%" y="-20%" width="120%" height="150%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#000000" flood-opacity="0.42"/>
+    </filter>
+  </defs>
+  <rect x="4" y="4" width="612" height="162" rx="42" fill="url(#stripBg)"/>
+  <rect x="9" y="9" width="602" height="152" rx="38" fill="none" stroke="url(#stripGold)" stroke-width="3" opacity="0.62"/>
+  <rect x="24" y="22" width="126" height="126" rx="34" fill="#0a0806" stroke="url(#stripGold)" stroke-width="3.5"/>
+  <rect x="36" y="34" width="102" height="102" rx="27" fill="none" stroke="#ffe3a8" stroke-width="2" opacity="0.34"/>
+  <text x="87" y="102" text-anchor="middle" font-family="Inter, Manrope, Arial, sans-serif" font-size="50" font-weight="850" fill="url(#stripGoldText)" filter="url(#stripShadow)">SK</text>
+  <g filter="url(#stripShadow)">
+    <text x="178" y="68" font-family="Inter, Manrope, Arial, sans-serif" font-size="48" font-weight="850" letter-spacing="-0.5" fill="url(#stripGoldText)">SK123</text>
+    <text x="180" y="101" font-family="Inter, Manrope, Arial, sans-serif" font-size="18" font-weight="800" letter-spacing="5" fill="#ffe3a8">СТРОИТЕЛЬНО-</text>
+    <text x="180" y="126" font-family="Inter, Manrope, Arial, sans-serif" font-size="18" font-weight="800" letter-spacing="4.2" fill="#ffe3a8">ИНВЕСТИЦИОННАЯ</text>
+    <text x="180" y="151" font-family="Inter, Manrope, Arial, sans-serif" font-size="18" font-weight="800" letter-spacing="5" fill="#ffe3a8">КОМПАНИЯ</text>
+  </g>
+</svg>
