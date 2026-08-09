@@ -70,19 +70,14 @@
           <div><dt>Сочи</dt><dd>районы с понятной логистикой</dd></div>
         </dl>
       </div>
-      <div class="hero-visual reveal" aria-label="Архитектурный образ современного дома в Сочи">
-        <div class="visual-card visual-main">
-          <div class="sun"></div>
-          <div class="mountains"></div>
-          <div class="house-shape">
-            <span></span><span></span><span></span>
-          </div>
-          <div class="pool-line"></div>
-        </div>
-        <div class="visual-note">
-          <strong>Не каталог объектов.</strong>
-          <span>Сайт помогает понять дом, район, процесс и следующий шаг.</span>
-        </div>
+      <div class="hero-visual reveal">
+        <figure class="hero-photo">
+          <img src="./assets/objects/object-1.jpg" alt="Современный дом SK123 в Сочи" fetchpriority="high">
+          <figcaption>
+            <strong>Современные дома в Сочи</strong>
+            <span>Архитектура, которая учитывает климат, рельеф и сценарий жизни.</span>
+          </figcaption>
+        </figure>
       </div>
     </section>
 
@@ -216,16 +211,22 @@
       </div>
       <div class="project-grid">
         <article class="project-card reveal">
-          <div class="project-visual linear-house"></div>
-          <div><h3>Linear 160</h3><p>Одноэтажный дом для участка с мягким рельефом. Терраса объединяет кухню, гостиную и сад.</p><span>160 м² · 3 спальни · плоская кровля</span></div>
+          <button class="project-visual" data-house="object-1" type="button" aria-label="Открыть карточку объекта Дом в КП «Иверия»">
+            <img src="./assets/objects/object-1.jpg" alt="Дом в КП «Иверия»" loading="lazy" decoding="async">
+          </button>
+          <div><h3>Дом в КП «Иверия»</h3><p>Современный дом на закрытой территории в Адлерском районе. Панорамное остекление и готовые инженерные подключения.</p><span>130 м² · участки 4,19–4,55 сот. · строительство</span></div>
         </article>
         <article class="project-card reveal">
-          <div class="project-visual terrace-house"></div>
-          <div><h3>Terrace 220</h3><p>Дом с выразительной террасой и вторым светом. Подходит для семьи и приема гостей.</p><span>220 м² · 4 спальни · панорамное остекление</span></div>
+          <button class="project-visual" data-house="object-7" type="button" aria-label="Открыть карточку объекта Дом в Весёлом">
+            <img src="./assets/objects/object-7.jpg" alt="Дом в Весёлом" loading="lazy" decoding="async">
+          </button>
+          <div><h3>Дом в Весёлом</h3><p>Готовый дом со свободной планировкой, видом на горы и закрытой территорией.</p><span>141 м² · 4,7 сот. · готовый дом</span></div>
         </article>
         <article class="project-card reveal">
-          <div class="project-visual slope-house"></div>
-          <div><h3>Slope 280</h3><p>Решение для склонов. Нижний уровень можно использовать под гараж, мастерскую или гостевую зону.</p><span>280 м² · 5 спален · работа с рельефом</span></div>
+          <button class="project-visual" data-house="object-8" type="button" aria-label="Открыть карточку объекта Дом на Золотом Гребешке">
+            <img src="./assets/objects/object-8.jpg" alt="Дом на Золотом Гребешке" loading="lazy" decoding="async">
+          </button>
+          <div><h3>Дом на Золотом Гребешке</h3><p>Дом в окружении зелени с видом на горы, подключенными коммуникациями и готовой черновой планировкой.</p><span>138 м² · участок 5,65 сот. · 4 спальни</span></div>
         </article>
       </div>
     </section>

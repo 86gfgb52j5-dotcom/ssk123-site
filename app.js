@@ -103,35 +103,35 @@ const houses = [
   },
   {
     id: "object-5",
-    title: "Квартира в Красной Поляне",
-    district: "Красная Поляна",
-    type: "Квартира",
-    status: "Готовый ремонт",
+    title: "Шале на Мясникяна",
+    district: "Адлерский район",
+    type: "Дом",
+    status: "В продаже",
     price: null,
     area: null,
     land: null,
     rooms: null,
     cover: "",
-    location: "Красная Поляна, Сочи.",
-    description: "Квартира с готовым ремонтом. Детали по площади, стоимости и комплектации уточняются.",
-    values: ["Готовый ремонт.", "Локация — Красная Поляна.", "Подробности предоставит специалист SK123."],
+    location: "г. Сочи, Адлерский район, ул. Мясникяна.",
+    description: "Шале на улице Мясникяна. Подробные параметры, комплектация и стоимость уточняются у специалиста SK123.",
+    values: ["Локация — Адлерский район, улица Мясникяна.", "Подробности по объекту предоставит специалист SK123."],
     specs: ["параметры уточняются", "стоимость уточняется"]
   },
   {
     id: "object-6",
-    title: "Эксклюзивные дома",
-    district: "Адлерский район",
+    title: "Рижская",
+    district: "Сочи",
     type: "Дом",
-    status: "В процессе",
+    status: "Продано",
     price: null,
     area: null,
     land: null,
     rooms: null,
     cover: "",
-    location: "Сочи. Дома под эксклюзивный запрос.",
-    description: "Объекты находятся в процессе. Параметры, срок реализации и стоимость уточняются.",
-    values: ["Индивидуальный подбор формата дома.", "Статус и характеристики уточняются у специалиста SK123."],
-    specs: ["параметры уточняются", "стоимость уточняется"]
+    location: "г. Сочи, ул. Рижская.",
+    description: "Объект на Рижской продан.",
+    values: ["Статус объекта — продано.", "Специалист SK123 подберёт похожий вариант."],
+    specs: ["объект продан"]
   },
   {
     id: "object-7",
@@ -287,11 +287,13 @@ function showToast(message) {
 }
 
 function objectMedia(house, className = "house-media") {
+  const label = `Открыть карточку объекта: ${escapeHtml(house.title)}`;
+
   if (!house.cover) {
-    return `<div class="${className} image-placeholder" role="img" aria-label="Фотографии объекта ${escapeHtml(house.title)} готовятся"><span>Фото готовятся</span></div>`;
+    return `<button class="${className} house-media-button image-placeholder" data-house="${house.id}" type="button" aria-label="${label}"><span>Фото готовятся</span></button>`;
   }
 
-  return `<div class="${className}"><img src="${house.cover}" alt="${escapeHtml(house.title)}" loading="lazy" decoding="async"></div>`;
+  return `<button class="${className} house-media-button" data-house="${house.id}" type="button" aria-label="${label}"><img src="${house.cover}" alt="${escapeHtml(house.title)}" loading="lazy" decoding="async"></button>`;
 }
 
 function galleryMedia(house) {
@@ -324,7 +326,7 @@ function renderCatalog(items = houses) {
       ${objectMedia(house)}
       <div class="house-content">
         <div class="house-meta">
-          <span>${escapeHtml(house.status)}</span>
+          <span class="${house.status === "Продано" ? "is-sold" : ""}">${escapeHtml(house.status)}</span>
           <span>${escapeHtml(house.district)}</span>
           <span>${escapeHtml(house.type)}</span>
           ${house.area ? `<span>${house.area} м²</span>` : ""}
@@ -375,7 +377,7 @@ function openHouse(id) {
         <p class="eyebrow">Карточка объекта</p>
         <h2 id="dialogTitle">${escapeHtml(house.title)}</h2>
         <div class="detail-meta">
-          <span>${escapeHtml(house.status)}</span>
+          <span class="${house.status === "Продано" ? "is-sold" : ""}">${escapeHtml(house.status)}</span>
           <span>${escapeHtml(house.district)}</span>
           <span>${escapeHtml(house.type)}</span>
           ${house.area ? `<span>${house.area} м²</span>` : ""}
@@ -441,6 +443,20 @@ function bindGlobalClicks() {
     }
     if (contactButton) handleContact(contactButton.dataset.contact);
     if (closeButton) closeButton.closest("dialog")?.close();
+  });
+}
+
+function initDialogs() {
+  [houseDialog, quizDialog].forEach((dialog) => {
+    dialog.addEventListener("click", (event) => {
+      if (event.target !== dialog) return;
+
+      const bounds = dialog.getBoundingClientRect();
+      const clickedOutside = event.clientX < bounds.left || event.clientX > bounds.right ||
+        event.clientY < bounds.top || event.clientY > bounds.bottom;
+
+      if (clickedOutside) dialog.close();
+    });
   });
 }
 
@@ -520,6 +536,7 @@ filters.addEventListener("change", applyFilters);
 renderCatalog();
 bindQuizButtons();
 bindGlobalClicks();
+initDialogs();
 bindForms();
 initCookieBanner();
 initReveal();
